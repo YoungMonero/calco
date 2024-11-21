@@ -1,0 +1,39 @@
+body {
+  text-align: center;
+  background-color: #172b3b;
+}
+
+.butt {
+  padding: 15px;
+  width: 90px;
+  margin-bottom: 5px;
+  background-color: blanchedalmond;
+  font-size: large;
+  font-weight: 700;
+}
+
+.input {
+  justify-self: center;
+  margin-bottom: 30px;
+}
+
+.input input {
+  padding: 100px;
+  width: 180px;
+  text-align: start;
+  margin-top: 30px;
+  font-size: xx-large;
+}
+
+@media screen and (min-width: 768px) {
+  .butt {
+    width: 130px;
+    padding: 20px;
+  }
+
+  .input input {
+    padding: 90px;
+    width: 350px;
+    margin-top: -10px;
+  }
+}
