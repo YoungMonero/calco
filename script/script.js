@@ -9,7 +9,7 @@ const calculate = document
         inputValue.innerText.length - 1
       )
       console.log(lastValue)
-      if (e.target.innerText === '=') {
+      if (e.target.innerText == '=') {
         inputValue.innerText = eval(inputValue.innerText)
       } else if (e.target.innerText == 'AC') {
         inputValue.innerText = '0'
@@ -18,7 +18,6 @@ const calculate = document
           0,
           inputValue.innerText.length - 1
         )
-        
         if (inputValue.innerText.length == 0) {
           inputValue.innerText = 0
         }
@@ -30,7 +29,7 @@ const calculate = document
 
 const number = document.querySelectorAll('.number').forEach(function (item) {
   item.addEventListener('click', function (e) {
-    if (inputValue.innerText === '0') {
+    if (inputValue.innerText == '0') {
       inputValue.innerText = ''
     }
     inputValue.innerText += e.target.innerText.trim()
