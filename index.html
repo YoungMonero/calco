@@ -1,42 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./style/style.css">
-</head>
-<body>
-    <div class="input"><input type="text"></div>
-    <div class="group-i">
-        <button class="butt" type="button">%</button>
-        <button class="butt" type="button">CE</button>
-        <button class="butt" type="button">C</button>
-        <button class="butt" type="button" style="background-color: #f79f07;">+</button>
+    <link rel="stylesheet" href="./style/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="calc-input">
+        <p name="calc-input" id="userinput">0</p>
+      </div>
+      <div class="calc-keys">
+        <button type="button" class="oparate operation">AC</button>
+        <button type="button" class="oparate operation">DEL</button>
+        <button type="button" class="oparate operation">%</button>
+        <button type="button" class="operation">/</button>
+        <button type="button" class="number">7</button>
+        <button type="button" class="number">8</button>
+        <button type="button" class="number">9</button>
+        <button type="button" class="operation">*</button>
+        <button type="button" class="number">4</button>
+        <button type="button" class="number">5</button>
+        <button type="button" class="number">6</button>
+        <button type="button" class="operation">-</button>
+        <button type="button" class="number">1</button>
+        <button type="button" class="number">2</button>
+        <button type="button" class="number">3</button>
+        <button type="button" class="operation">+</button>
+        <button type="button" class="zero-key number">0</button>
+        <button type="button" class="number">.</button>
+        <button type="button" class="operation operation">=</button>
+      </div>
     </div>
-    <div class="group-ii">
-        <button class="butt" type="button">7</button>
-        <button class="butt" type="button">8</button>
-        <button class="butt" type="button">9</button>
-        <button class="butt" type="button" style="background-color: #f79f07;">/</button>
-    </div>
-    <div class="group-iii">
-        <button class="butt" type="button">4</button>
-        <button class="butt" type="button">5</button>
-        <button class="butt" type="button">6</button>
-        <button class="butt" type="button" style="background-color: #f79f07;">*</button>
-    </div>
-    <div class="group-iv">
-        <button class="butt" type="button">1</button>
-        <button class="butt" type="button">2</button>
-        <button class="butt" type="button">3</button>
-        <button class="butt" type="button" style="background-color: #f79f07;">-</button>
-    </div>
-    <div class="group-v">
-        <button class="butt" type="button" style="background-color: #f79f07;">AC</button>
-        <button class="butt" type="button">0</button>
-        <button class="butt" type="button">.</button>
-        <button class="butt" type="button" style="background-color: #f79f07;">=</button>
-    </div>
-</body>
+  </body>
+  <script src="./script/script.js " type="text/javascript"></script>
 </html>
