@@ -7,21 +7,27 @@ document.querySelectorAll('.operation').forEach(function (item) {
       inputValue.value.length
     )
 
-    if (e.target.innerText === '=') {
-      inputValue.value = eval(inputValue.value)
-    } else if (e.target.innerText === 'AC') {
-      inputValue.value = '0'
-    } else if (e.target.innerText === 'DEL') {
-      inputValue.value = inputValue.value.substring(
-        0,
-        inputValue.value.length - 1
-      )
-      if (inputValue.value.length === 0) {
-        inputValue.value = '0'
-      }
-    } else if (!isNaN(lastValue)) {
-      inputValue.value += e.target.innerText
+if (e.target.innerText === '=') {
+  try {
+    if (/^[0-9+\-*/.%() ]+$/.test(inputValue.value)) {
+      inputValue.value = Function('"use strict"; return (' + inputValue.value + ')')();
+    } else {
+      inputValue.value = 'Error';
     }
+  } catch {
+    inputValue.value = 'Error';
+  }
+  } else if (e.target.innerText === 'AC') {
+    inputValue.value = '0';
+  } else if (e.target.innerText === 'DEL') {
+    inputValue.value = inputValue.value.substring(0, inputValue.value.length - 1);
+  if (inputValue.value.length === 0) {
+    inputValue.value = '0';
+  }
+  } else if (!isNaN(lastValue)) {
+  inputValue.value += e.target.innerText;
+  }
+
   })
 })
 
