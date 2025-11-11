@@ -9,7 +9,7 @@ document.querySelectorAll('.operation').forEach(item => {
 
     if (e.target.innerText === '=') {
       try {
-        inputValue.value = calculate(inputValue.value)
+        inputValue.value = safeEvaluate(inputValue.value)
       } catch {
         inputValue.value = 'Error'
       }
@@ -31,8 +31,51 @@ document.querySelectorAll('.number').forEach(item => {
   })
 })
 
-function calculate(expr) {
-  if (!/^[0-9+\-*/.%() ]+$/.test(expr)) throw new Error('Invalid input')
+function safeEvaluate(expr) {
   expr = expr.replace(/%/g, '/100')
-  return new Function('return ' + expr)()
+  if (!/^[0-9+\-*/.() ]+$/.test(expr)) throw new Error('Invalid input')
+  const tokens = expr.match(/(\d+(\.\d+)?)|[+\-*/()]/g)
+  if (!tokens) throw new Error('Invalid input')
+  return evaluateTokens(tokens)
+}
+
+function evaluateTokens(tokens) {
+  const ops = []
+  const vals = []
+
+  function applyOp() {
+    const b = vals.pop()
+    const a = vals.pop()
+    const op = ops.pop()
+    switch (op) {
+      case '+': vals.push(a + b); break
+      case '-': vals.push(a - b); break
+      case '*': vals.push(a * b); break
+      case '/': vals.push(a / b); break
+    }
+  }
+
+  const precedence = { '+': 1, '-': 1, '*': 2, '/': 2 }
+
+  tokens.forEach(token => {
+    if (!isNaN(token)) {
+      vals.push(parseFloat(token))
+    } else if (token === '(') {
+      ops.push(token)
+    } else if (token === ')') {
+      while (ops.length && ops[ops.length - 1] !== '(') applyOp()
+      ops.pop()
+    } else {
+      while (
+        ops.length &&
+        precedence[ops[ops.length - 1]] >= precedence[token]
+      ) {
+        applyOp()
+      }
+      ops.push(token)
+    }
+  })
+
+  while (ops.length) applyOp()
+  return vals[0]
 }
