@@ -28,6 +28,15 @@ body {
   padding: 20px;
 }
 
+input {
+  outline: none;
+  border: none;
+  padding: 20px;
+  width: 100%;
+  background-color: transparent;
+  color: #fff;
+}
+
 .calc-input input {
   width: 100%;
   font-size: 5rem;
@@ -57,22 +66,12 @@ button:focus {
   filter: brightness(120%);
 }
 
-input {
-  outline: none;
-  border: none;
-  padding: 20px;
-  width: 100%;
-  background-color: transparent;
-  color: #fff;
-}
-
 .calc-keys {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 13px;
   margin-top: 20px;
   margin-left: 10px;
-  
 }
 
 .zero-key {
