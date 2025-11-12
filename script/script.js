@@ -31,7 +31,7 @@ document.querySelectorAll('.number').forEach(item => {
   })
 })
 
-function safeEvaluate(expr) {
+function safeEvaluate (expr) {
   expr = expr.replace(/%/g, '/100')
   if (!/^[0-9+\-*/.() ]+$/.test(expr)) throw new Error('Invalid input')
   const tokens = expr.match(/(\d+(\.\d+)?)|[+\-*/()]/g)
@@ -39,11 +39,11 @@ function safeEvaluate(expr) {
   return evaluateTokens(tokens)
 }
 
-function evaluateTokens(tokens) {
+function evaluateTokens (tokens) {
   const ops = []
   const vals = []
 
-  function applyOp() {
+  function applyOp () {
     const b = vals.pop()
     const a = vals.pop()
     const op = ops.pop()
